@@ -1,0 +1,84 @@
+/* global.css */
+
+:root {
+  --color-transparent: transparent;
+  --color-blue3: #E6E6FA;
+  --color-pale-grey: #E0EDE0;
+  --color-super-light-turquoise: #6CEAE6;
+  --color-juicy-peach: #FFAB76;
+  --color-light-peach: #FFC59C;
+  --color-super-light-peach: #FFEDE0;
+  --color-ultra-light-peach: #FDFBFA;
+  --color-tuiles-bg: #D1E8E4;
+  --color-pure-white: #FFFFFF;
+  --color-mint-cream: #EBF3EB;
+  --color-button-bg: #F2E5E3;
+  --color-button-text: #4C2924;
+  --color-header-bg: #2A3D45;
+  --color-header-color: #070403;
+  --color-dusty-rose: #D0A39E;
+  --color-frosty-lavender: #CACAF4;
+  --color-misty-lavender: #ADADEF;
+}
+
+@font-face {
+  font-family: Baloo;
+  src: url(../fonts/Baloo-Regular.woff2) format(woff2),
+       url(../fonts/Baloo-Regular.woff) format(woff);
+  font-weight: 400;
+  font-style: normal;
+}
+ @font-face {
+  font-family: Roboto;
+  src: url(../fonts/roboto-latin-400-normal.woff2) format(woff2),
+       url(../fonts/roboto-latin-400-normal.woff) format(woff);
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Application des styles typographiques */
+body {
+  @apply text-base font-roboto;
+  line-height: 1.5;
+}
+
+h1 {
+  @apply text-5xl text-header-color font-baloo font-bold;
+  line-height: 1.2;
+}
+
+h2 {
+  @apply text-4xl text-header-color font-baloo font-bold;
+  line-height: 1.2;
+}
+
+h3 {
+  @apply text-3xl text-header-color font-baloo font-normal;
+  line-height: 1.2;
+}
+
+h4 {
+  @apply text-2xl text-header-color font-baloo font-normal;
+  line-height: 1.2;
+}
+
+h5 {
+  @apply text-xl text-header-color font-baloo font-normal;
+  line-height: 1.2;
+}
+
+h6 {
+  @apply text-lg text-header-color font-baloo font-light;
+  line-height: 1.2;
+}
+
+p {
+  @apply text-base font-roboto font-normal;
+  line-height: 1.4;
+}
+
+/*
+.button-icon-wrapper svg {
+  height: clamp(1.03rem, 4.7727vw, 1.45rem);
+}
+*/

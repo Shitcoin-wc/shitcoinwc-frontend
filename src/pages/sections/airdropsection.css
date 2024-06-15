@@ -1,0 +1,66 @@
+/* airdropsection.css */
+
+.Airdrop-section {
+  background-color: #e6e6fa; /* Light purple background color */
+  padding: 4rem 0;
+}
+
+.social-icons img {
+  margin: 0 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #eff1f3; /* Light gray background */
+  border-radius: 9999px; /* Full round */
+  overflow: hidden;
+  margin: 1rem 0; /* Reduced margin for less spacing */
+  height: 1.5rem; /* Height of the progress bar */
+}
+
+.progress {
+  background-color: #48bb78; /* Green background */
+  height: 100%;
+  text-align: center;
+  line-height: 1.5rem; /* Align text vertically */
+  color: white;
+}
+
+table {
+  width: 100%;
+  max-width: 75%; /* Reduce the width of the table */
+  border-collapse: collapse;
+  margin: 2rem auto; /* Center the table */
+  background-color: #d1e8e4; /* Apply background color */
+  border-radius: 1rem; /* Round corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight shadow for contour */
+}
+
+th, td {
+  border: none; /* Make lines invisible */
+  padding: 0.5rem; /* Reduce padding */
+  text-align: center;
+}
+
+.tweet-button {
+  background-color: #1da1f2;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 9999px; /* Full round */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tweet-button:hover {
+  background-color: #0d95e8;
+}
+
+.footer-text {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4a5568; /* Dark gray color */
+}

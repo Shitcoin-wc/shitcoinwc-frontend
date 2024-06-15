@@ -1,0 +1,10 @@
+/* parallaxsection.css */
+
+.Parallax-section {
+  /* Your existing styles */
+  background-attachment: fixed; /* This creates the parallax effect */
+  background-position: center; /* Align the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Cover the entire section */
+}
+

@@ -1,0 +1,24 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-auto {
+  min-width: 100%;
+}
+
+.view-contract-link {
+  width: 100%;
+  text-align: right;
+  margin-top: 8px;
+}
+
+.view-contract-link a {
+  color: #1e90ff; /* Couleur du lien */
+  text-decoration: underline;
+}
+
+.view-contract-link a:hover {
+  color: #1c86ee; /* Couleur du lien lors du survol */
+  text-decoration: underline;
+}

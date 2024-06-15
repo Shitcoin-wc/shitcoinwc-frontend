@@ -1,0 +1,6 @@
+.logo path {
+	fill: #9a9a9a;
+}
+.logo:hover path {
+	fill: #ffffff;
+}

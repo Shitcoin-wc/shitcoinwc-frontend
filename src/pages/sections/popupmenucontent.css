@@ -1,0 +1,160 @@
+body {
+    background: #444;
+    text-align: center;
+}
+
+.wrapper {
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    height: auto; 
+    margin: 27px 18px 70px 0;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.toiletroll {
+    position: relative;
+    height: auto; 
+}
+
+.roll {
+    position: absolute;
+    display: flex;
+    width: 230px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 6% 0% 0% 6% / 50% 0% 0% 50%;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, .5), inset 0 5px 10px rgba(0, 0, 0, .3);
+    background-size: 100px 60px;
+    justify-content: center;
+    align-items: center;
+    font-family: Baloo, sans-serif;
+    font-weight: 400;
+    color: #4c2924;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 5; 
+    font-size: 16px;
+}
+
+.roll::before {
+    position: absolute;
+    content: "";
+    z-index: 1;
+    height: 100%;
+    width: 20%;
+    right: -10%;
+    border-radius: 50%;
+    background-color: #eee;
+    background-image: radial-gradient(ellipse at center,
+            #eeeeee 0%, #eeeeee 4%, #bbbbbb 5%, #eeeeee 6%, #eeeeee 9%,
+            #bbbbbb 10%, #eeeeee 11%, #eeeeee 14%, #bbbbbb 15%, #eeeeee 16%, #eeeeee 19%,
+            #bbbbbb 20%, #eeeeee 21%, #eeeeee 24%, #bbbbbb 25%, #eeeeee 26%, #eeeeee 29%,
+            #bbbbbb 30%, #eeeeee 31%, #eeeeee 34%, #bbbbbb 35%, #eeeeee 36%, #eeeeee 39%,
+            #bbbbbb 40%, #eeeeee 41%, #eeeeee 44%, #bbbbbb 45%, #eeeeee 46%, #eeeeee 49%,
+            #bbbbbb 50%, #eeeeee 51%, #eeeeee 54%, #bbbbbb 55%, #eeeeee 56%, #eeeeee 59%,
+            #bbbbbb 60%, #eeeeee 61%, #eeeeee 64%, #bbbbbb 65%, #eeeeee 66%, #eeeeee 69%,
+            #bbbbbb 70%, #eeeeee 71%, #eeeeee 74%, #bbbbbb 75%, #eeeeee 76%, #eeeeee 79%,
+            #bbbbbb 80%, #eeeeee 81%, #eeeeee 84%, #bbbbbb 85%, #eeeeee 86%, #eeeeee 89%,
+            #bbbbbb 90%, #eeeeee 91%, #eeeeee 94%, #bbbbbb 95%, #eeeeee 96%, #eeeeee 100%);
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, .5);
+}
+
+.roll::after {
+    position: absolute;
+    content: "";
+    z-index: 1;
+    height: 40%;
+    width: 8%;
+    top: 30%;
+    right: -4%;
+    border-radius: 50%;
+    background: black;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, .5);
+}
+
+.papers {
+    position: relative;
+    z-index: 3;
+    width: 230px;
+    top: 57px;
+    left: 9px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 0; 
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #ccc #f4f4f4; 
+}
+
+
+.papers::-webkit-scrollbar {
+    width: 8px;
+}
+
+.papers::-webkit-scrollbar-track {
+    background: #f4f4f4;
+}
+
+.papers::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+    border: 2px solid #f4f4f4;
+}
+
+.papers.open {
+    max-height: 180px; 
+}
+
+.paper-token-info {
+    display: flex;
+    width: 100%;
+    padding: 0px 15px 0px 0px;
+    justify-content: space-between;
+}
+
+.papers .paper {
+    width: 230px;
+    display: flex;
+    padding: 0px 0px 0px 10px;
+    height: 60px;
+    background-color: #ffffff;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, .5);
+    align-items: center;
+    justify-content: flex-start;
+    font-family: Baloo, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #4c2924;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 4; 
+}
+
+.input-wrapper {
+    position: relative;
+    top: 10px; 
+    width: 60%;
+}
+
+.text-copy {
+    font-family: Baloo, sans-serif;
+    font-weight: 200;
+    color: #4c2924;
+}
+
+.div-input {
+    gap: 10px;
+}
+
+.input {
+    border-radius: 10px;
+    width: 50%;
+    font-family: Baloo, sans-serif;
+    font-weight: 400;
+    color: #4c2924;
+    line-height: 1;
+    font-size: 14px;
+}
