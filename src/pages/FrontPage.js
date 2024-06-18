@@ -1,5 +1,3 @@
-// FrontPage.js
-
 import React, { Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet';
 import InclinedSeparator from '../components/ui/InclinedSeparator/InclinedSeparator';

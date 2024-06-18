@@ -84,7 +84,7 @@ function ParallaxSection() {
                 <ButtonWithIcon SvgIcon={DumpNow} text="DUMP NOW!"  size="lg" tailwindClass="w-full font-baloo" headbandText="Soon"/>
               </div>
              
-              <ButtonWithIcon SvgIcon={ToiletPaper} text="TOILET PAPER" linkTo="https://whitepaper.shitcoinwc.com/" size="lg" tailwindClass="w-full font-baloo text-2xs" />
+              <ButtonWithIcon SvgIcon={ToiletPaper} text="TOILET PAPER" linkTo="https://github.com/Shitcoin-wc" size="lg" tailwindClass="w-full font-baloo text-2xs" />
             </div>
 
           </div>

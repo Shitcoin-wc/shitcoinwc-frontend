@@ -20,6 +20,8 @@ function Header({ mainnet }) {
   const { address, isConnected } = useWeb3ModalAccount();
   const { disconnect } = useDisconnect();
   const [showPhishingWarning, setShowPhishingWarning] = useState(true);
+  const [showTestnetInvite, setShowTestnetInvite] = useState(false);
+  const [stopCycle, setStopCycle] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,12 +37,31 @@ function Header({ mainnet }) {
 
   useEffect(() => {
     const header = document.querySelector('.header-outer');
-    if (showPhishingWarning) {
-      header.style.top = '40px'; // Adjust this value based on the height of the warning message
+    if (showPhishingWarning || showTestnetInvite) {
+      header.style.top = window.innerWidth <= 600 ? '65px' : '45px';
     } else {
       header.style.top = '0px';
     }
-  }, [showPhishingWarning]);
+  }, [showPhishingWarning, showTestnetInvite]);
+
+  useEffect(() => {
+    if (!stopCycle) {
+      const phishingTimer = setTimeout(() => {
+        setShowPhishingWarning(false);
+        setShowTestnetInvite(true);
+      }, 2000);
+
+      const testnetTimer = setTimeout(() => {
+        setShowTestnetInvite(false);
+        setShowPhishingWarning(true);
+      }, 7000); // Show testnet invite for 5 seconds
+
+      return () => {
+        clearTimeout(phishingTimer);
+        clearTimeout(testnetTimer);
+      };
+    }
+  }, [showPhishingWarning, showTestnetInvite, stopCycle]);
 
   const getButtonContent = () => {
     if (!isConnected) return 'Login'
@@ -98,15 +119,27 @@ function Header({ mainnet }) {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 
+  const closeWarning = () => {
+    setStopCycle(true);
+    setShowPhishingWarning(false);
+    setShowTestnetInvite(false);
+  };
+
   return (
     <div>
       {showPhishingWarning && (
         <div className="phishing-warning">
-          PHISHING WARNING: please make sure you're visiting https://shitcoinwc.com - check the URL carefully.
-          <button className="close-warning" onClick={() => setShowPhishingWarning(false)}>X</button>
+          <div className="warning-text">PHISHING WARNING: please make sure you're visiting https://shitcoinwc.com - check the URL carefully.</div>
+          <button className="close-warning" onClick={closeWarning}>X</button>
         </div>
       )}
-      <div className={`header-outer ${!visible && 'header-hidden'}`}>
+      {showTestnetInvite && (
+        <div className="testnet-invite">
+          <div className="invite-text">Use the testnet to be eligible for the airdrop! For more information, visit our <a href="https://blog.shitcoinwc.com" target="_blank" rel="noopener noreferrer">blog</a></div>
+          <button className="close-warning" onClick={closeWarning}>X</button>
+        </div>
+      )}
+      <div className={`header-outer ${!visible && 'header-hidden'}`} style={{ top: showPhishingWarning || showTestnetInvite ? (window.innerWidth <= 600 ? '65px' : '45px') : '0px' }}>
         <div className="header-inner">
           <a className="logo flex flex-row items-center whitespace-nowrap w-32 hover:text-dusty-rose" href="/">
             <img src={logo} alt="Logo" style={{ width: '48px', height: 'auto' }} />
