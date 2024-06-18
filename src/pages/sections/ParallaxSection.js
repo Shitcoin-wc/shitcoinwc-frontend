@@ -22,7 +22,7 @@ function ParallaxSection() {
   const { open } = useWeb3Modal();
   const { address, isConnected } = useWeb3ModalAccount()
   const { walletProvider } = useWeb3ModalProvider()
-  const ShitcoinContractAddress = '0x12d447DaCCe2Bb5484fe85FF2f2756049Ee0b8D6';
+
   const dumpTokens = async () => {
     if(!isConnected) open()
     else setIsPopupOpen(true)
@@ -84,7 +84,7 @@ function ParallaxSection() {
                 <ButtonWithIcon SvgIcon={DumpNow} text="DUMP NOW!"  size="lg" tailwindClass="w-full font-baloo" headbandText="Soon"/>
               </div>
              
-              <ButtonWithIcon SvgIcon={ToiletPaper} text="TOILET PAPER" linkTo="https://whitepaper.shitcoinwc.com/" size="lg" tailwindClass="w-full font-baloo text-2xs" headbandText="Soon"/>
+              <ButtonWithIcon SvgIcon={ToiletPaper} text="TOILET PAPER" linkTo="https://whitepaper.shitcoinwc.com/" size="lg" tailwindClass="w-full font-baloo text-2xs" />
             </div>
 
           </div>

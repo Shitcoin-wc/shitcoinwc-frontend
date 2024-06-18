@@ -4,15 +4,12 @@ import logo from '../assets/img/logo.webp';
 import LogoBars from '../assets/icons/LogoBars';
 import SignIn from '../assets/icons/SignIn';
 import ButtonWithIcon from '../components/ui/Buttons/ButtonWithIcon';
-import { useDisconnect, useWeb3Modal, useWeb3ModalAccount ,useWeb3ModalProvider} from '@web3modal/ethers/react'
-
-
+import { useDisconnect, useWeb3Modal, useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers/react';
 import { BrowserProvider, Contract, ethers } from 'ethers';
 import ShitcoinABI from '../abi/shitcoin.json';
-import { ShitcoinContractAddress} from '../config/config';
+import { ShitcoinContractAddress } from '../config/config';
 
 function Header({ mainnet }) {
-
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
   const [userRewards, setUserRewards] = useState(false);
@@ -20,8 +17,9 @@ function Header({ mainnet }) {
   const [networkName] = useState(mainnet.name); // Set the network name from the prop
   const { open } = useWeb3Modal();
   const { walletProvider } = useWeb3ModalProvider();
-  const { address, isConnected  } = useWeb3ModalAccount();
+  const { address, isConnected } = useWeb3ModalAccount();
   const { disconnect } = useDisconnect();
+  const [showPhishingWarning, setShowPhishingWarning] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,11 +33,20 @@ function Header({ mainnet }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos, visible, isConnected, address]);
 
+  useEffect(() => {
+    const header = document.querySelector('.header-outer');
+    if (showPhishingWarning) {
+      header.style.top = '40px'; // Adjust this value based on the height of the warning message
+    } else {
+      header.style.top = '0px';
+    }
+  }, [showPhishingWarning]);
+
   const getButtonContent = () => {
-    if(!isConnected) return 'Login'
+    if (!isConnected) return 'Login'
     else return formatAddress(address)
   }
- 
+
   const userConnected = async () => {
     if (!isConnected) {
       open();
@@ -54,7 +61,7 @@ function Header({ mainnet }) {
 
   const getUserRewards = async () => {
     try {
-      if(!isConnected) {
+      if (!isConnected) {
         setUserRewards(false);
       } else {
         const ethersProvider = new BrowserProvider(walletProvider);
@@ -63,7 +70,7 @@ function Header({ mainnet }) {
         const userRewards = await ShitcoinContract.getUserRewards(address);
         const amount = ethers.formatUnits(userRewards[0], 18);
         const isRewarded = userRewards[1];
-        if(!isRewarded && amount !== '0.0') {
+        if (!isRewarded && amount !== '0.0') {
           setUserRewards(true);
           const formattedNumber = Math.round(amount * 100) / 100;
           setRewardAmount(formattedNumber);
@@ -76,7 +83,7 @@ function Header({ mainnet }) {
 
   const reedemGSHT = async () => {
     try {
-      if(!isConnected) throw Error('User disconnected');
+      if (!isConnected) throw Error('User disconnected');
       const ethersProvider = new BrowserProvider(walletProvider);
       const signer = await ethersProvider.getSigner();
       const ShitcoinContract = new Contract(ShitcoinContractAddress, ShitcoinABI, signer);
@@ -87,42 +94,50 @@ function Header({ mainnet }) {
   }
 
   const formatAddress = (address) => {
-    if(!address) return '';
+    if (!address) return '';
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 
   return (
-    <div className={`header-outer  ${!visible && 'header-hidden'}`}>
-      <div className="header-inner">
-        <a className="logo flex flex-row items-center whitespace-nowrap w-32 hover:text-dusty-rose" href="/">
-          <img src={logo} alt="Logo" style={{ width: '48px', height: 'auto' }} />
-          <h5 className="text-button-bg ml-4">Shitcoin WC</h5>
-        </a>
-        <div className="header-right">
-          {userRewards && 
-            <div className="hidden md:flex ml-4" onClick={reedemGSHT}>
-              <ButtonWithIcon  text={`Claim ${rewardAmount} GSHT`} linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose button-claim"/>
-            </div>
-          }
-        
-          <div className="flex items-center cursor-pointer" onClick={userConnected}>
-          {networkName && 
+    <div>
+      {showPhishingWarning && (
+        <div className="phishing-warning">
+          PHISHING WARNING: please make sure you're visiting https://shitcoinwc.com - check the URL carefully.
+          <button className="close-warning" onClick={() => setShowPhishingWarning(false)}>X</button>
+        </div>
+      )}
+      <div className={`header-outer ${!visible && 'header-hidden'}`}>
+        <div className="header-inner">
+          <a className="logo flex flex-row items-center whitespace-nowrap w-32 hover:text-dusty-rose" href="/">
+            <img src={logo} alt="Logo" style={{ width: '48px', height: 'auto' }} />
+            <h5 className="text-button-bg ml-4">Shitcoin WC</h5>
+          </a>
+          <div className="header-right">
+            {userRewards &&
+              <div className="hidden md:flex ml-4" onClick={reedemGSHT}>
+                <ButtonWithIcon text={`Claim ${rewardAmount} GSHT`} linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose button-claim" />
+              </div>
+            }
+
+            <div className="flex items-center cursor-pointer" onClick={userConnected}>
+              {networkName &&
+                <div className="hidden md:flex ml-4">
+                  <ButtonWithIcon text={networkName} linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose" />
+                </div>
+              }
+
+              <div className="md:hidden w-8"><LogoBars /></div>
+
               <div className="hidden md:flex ml-4">
-                <ButtonWithIcon text={networkName} linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose"/>
+                <ButtonWithIcon SvgIcon={getButtonContent() === 'Login' ? SignIn : ''} text={getButtonContent()} linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose" />
               </div>
-            }
-           
-            <div className="md:hidden w-8"><LogoBars /></div>
-            
-            <div className="hidden md:flex ml-4">
-              <ButtonWithIcon SvgIcon={getButtonContent() === 'Login' ? SignIn : ''} text={getButtonContent()} linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose"/>
+
+              {isConnected &&
+                <div className="hidden md:flex ml-4" onClick={userDisconnected}>
+                  <ButtonWithIcon text="Disconnect" linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose" />
+                </div>
+              }
             </div>
-            
-            {isConnected && 
-              <div className="hidden md:flex ml-4" onClick={userDisconnected}>
-                <ButtonWithIcon text="Disconnect" linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose"/>
-              </div>
-            }
           </div>
         </div>
       </div>
