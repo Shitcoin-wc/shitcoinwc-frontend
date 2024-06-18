@@ -1,12 +1,30 @@
-.phishing-warning {
+.phishing-warning,
+.testnet-invite {
   background-color: #d1e8e4;
   color: #333;
   padding: 10px;
-  text-align: center;
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testnet-invite {
+  background-color: #f0e68c;
+}
+
+.warning-text,
+.invite-text {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.invite-text a {
+  color: blue; /* Adjust the color as needed */
+  text-decoration: underline;
 }
 
 .close-warning {
@@ -14,8 +32,9 @@
   border: none;
   font-size: 16px;
   font-weight: bold;
-  margin-left: 10px;
   cursor: pointer;
+  position: absolute;
+  right: 10px; /* Position the button at the extreme right */
 }
 
 .header-outer {
@@ -23,7 +42,7 @@
   height: 66px;
   background-color: #2A3D45ec;
   position: fixed;
-  top: 40px; /* Initial top position when the warning is shown */
+  top: 45px; /* Adjusted top position when the warning is shown */
   left: 0;
   z-index: 999; /* Make sure it's below the phishing warning */
   transition: top 1s;
@@ -47,22 +66,14 @@
     padding-right: 20px;
     padding-left: 20px;
   }
+
+  .header-outer {
+    top: 55px; /* Adjust this value based on the height of the warning message on smaller screens */
+  }
 }
 
-.header-right {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.header-cart {
-  margin-right: 20px;
-}
-
-.logo:hover .text-button-bg {
-  color: var(--color-dusty-rose);
-}
-
-.button-claim {
-  margin-right: 10%;
+@media (max-width: 600px) {
+  .header-outer {
+    top: 65px; /* Adjust this value based on the height of the warning message on smaller screens */
+  }
 }

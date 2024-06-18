@@ -1,3 +1,6 @@
 node_modules
 config/config.js
-build
+package-lock.json
+firebase.json
+build/
+
