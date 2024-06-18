@@ -1,11 +1,31 @@
+.phishing-warning {
+  background-color: #d1e8e4;
+  color: #333;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.close-warning {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 .header-outer {
   width: 100%;
   height: 66px;
   background-color: #2A3D45ec;
   position: fixed;
-  top: 0;
+  top: 40px; /* Initial top position when the warning is shown */
   left: 0;
-  z-index: 1000;
+  z-index: 999; /* Make sure it's below the phishing warning */
   transition: top 1s;
 }
 

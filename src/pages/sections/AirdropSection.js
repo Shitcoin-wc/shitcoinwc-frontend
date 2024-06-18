@@ -8,6 +8,7 @@ import twitterIcon from '../../assets/icons/twitter.png';
 import telegramIcon from '../../assets/icons/telegram.png';
 import githubIcon from '../../assets/icons/github.png';
 import discordIcon from '../../assets/icons/discord.png';
+import facebookIcon from '../../assets/icons/facebook.png';
 import XIcon from '../../assets/icons/XIcon';
 import { getTwitterFollowers } from '../../services/twitterService';
 
@@ -44,12 +45,16 @@ function AirdropSection() {
           <a href="https://telegram.org/" target="_blank" rel="noopener noreferrer">
             <img src={telegramIcon} alt="Telegram" className="mx-2 w-10 h-10" />
           </a>
-          <a href="https://discord.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://discord.gg/XPn5erAQ37" target="_blank" rel="noopener noreferrer">
             <img src={discordIcon} alt="Discord" className="mx-2 w-10 h-10" />
           </a>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/shitcoinwc" target="_blank" rel="noopener noreferrer">
+            <img src={facebookIcon} alt="Facebook" className="mx-2 w-10 h-10" />
+          </a>
+          <a href="https://github.com/Shitcoin-wc" target="_blank" rel="noopener noreferrer">
             <img src={githubIcon} alt="GitHub" className="mx-2 w-10 h-10" />
           </a>
+
         </div>
 
         <p className="text-center mb-16">

@@ -23,10 +23,10 @@ const mainnet = {
 
 // 3. Create a metadata object
 const metadata = {
-  name: 'My Website',
-  description: 'My Website description',
-  url: 'https://mywebsite.com', // origin must match your domain & subdomain
-  icons: ['https://avatars.mywebsite.com/']
+  name: 'Shitcoin WC',
+  description: 'Shitcoin WC - Dump Your Shitcoins and Memecoins with ShitcoinWC',
+  url: 'https://shitcoinwc.com', // origin must match your domain & subdomain
+  icons: ['https://shitcoinwc.com/static/media/logo.6c501231924e83837d9a.webp']
 }
 
 // 4. Create Ethers config
