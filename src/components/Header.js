@@ -38,7 +38,7 @@ function Header({ mainnet }) {
   useEffect(() => {
     const header = document.querySelector('.header-outer');
     if (showPhishingWarning || showTestnetInvite) {
-      header.style.top = window.innerWidth <= 600 ? '65px' : '45px';
+      header.style.top = window.innerWidth <= 600 ? '50px' : '45px';
     } else {
       header.style.top = '0px';
     }
@@ -135,7 +135,7 @@ function Header({ mainnet }) {
       )}
       {showTestnetInvite && (
         <div className="testnet-invite">
-          <div className="invite-text">Use the testnet to be eligible for the airdrop! For more information, visit our <a href="https://blog.shitcoinwc.com" target="_blank" rel="noopener noreferrer">blog</a></div>
+          <div className="invite-text">Want free coins? Dive into the testnet!  </div>
           <button className="close-warning" onClick={closeWarning}>X</button>
         </div>
       )}

@@ -42,7 +42,7 @@
   height: 66px;
   background-color: #2A3D45ec;
   position: fixed;
-  top: 45px; /* Adjusted top position when the warning is shown */
+  top: 50px; /* Adjusted top position when the warning is shown */
   left: 0;
   z-index: 999; /* Make sure it's below the phishing warning */
   transition: top 1s;
@@ -73,7 +73,12 @@
 }
 
 @media (max-width: 600px) {
+  .phishing-warning,
+  .testnet-invite {
+    height: 50px; /* Set a fixed height for both banners */
+  }
+
   .header-outer {
-    top: 65px; /* Adjust this value based on the height of the warning message on smaller screens */
+    top: 50px; /* Adjust this value based on the height of the warning message on smaller screens */
   }
 }
