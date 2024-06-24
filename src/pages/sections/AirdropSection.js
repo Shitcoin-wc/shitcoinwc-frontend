@@ -36,7 +36,7 @@ function AirdropSection() {
         <h2 className="mb-14 text-center">Degen, Together Strong</h2>
 
         <div className="social-icons flex justify-center mb-16">
-          <a href="https://www.tiktok.com/@shitcoinwc" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.tiktok.com/@shitcoinwc3" target="_blank" rel="noopener noreferrer">
             <img src={tiktokIcon} alt="TikTok" className="mx-2 w-10 h-10" />
           </a>
           <a href="https://x.com/ShitcoinWC" target="_blank" rel="noopener noreferrer">

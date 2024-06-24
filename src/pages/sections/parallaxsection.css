@@ -8,3 +8,8 @@
   background-size: cover; /* Cover the entire section */
 }
 
+@media (max-width: 600px) {
+  .Parallax-section {
+    padding-top: 130px; /* Ajustez cette valeur en fonction de la hauteur totale du header et des messages d'avertissement */
+  }
+}
