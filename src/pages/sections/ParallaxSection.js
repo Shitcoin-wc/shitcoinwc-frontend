@@ -46,11 +46,15 @@ function ParallaxSection() {
     }
   }
 
+  const padZero = (num) => {
+    return String(num).padStart(2, '0');
+  };
+
   const renderer = ({ days, hours, minutes, seconds }) => {
     return (
       <div>
-        <span className="desktop-text">Live on BSC mainnet at {days}D {hours}:{minutes}:{seconds} </span>
-        <span className="mobile-text">Live on BSC mainnet at <br /> {days}D {hours}:{minutes}:{seconds}</span>
+        <span className="desktop-text">Live on BSC mainnet at {days}D {padZero(hours)}:{padZero(minutes)}:{padZero(seconds)} </span>
+        <span className="mobile-text">Live on BSC mainnet at <br /> {days}D {padZero(hours)}:{padZero(minutes)}:{padZero(seconds)}</span>
       </div>
     );
   };
