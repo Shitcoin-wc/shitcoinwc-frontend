@@ -1,15 +1,37 @@
 /* parallaxsection.css */
 
 .Parallax-section {
-  /* Your existing styles */
-  background-attachment: fixed; /* This creates the parallax effect */
-  background-position: center; /* Align the background image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Cover the entire section */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.countdown-text {
+  font-size: 1.25rem; /* Ajustez la taille de la police selon vos besoins */
+  line-height: 1.5; /* Ajustez la hauteur de ligne selon vos besoins */
+}
+
+.desktop-text {
+  display: none;
+}
+
+.mobile-text {
+  display: inline;
+}
+
+@media (min-width: 601px) {
+  .desktop-text {
+    display: inline;
+  }
+
+  .mobile-text {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
   .Parallax-section {
-    padding-top: 130px; /* Ajustez cette valeur en fonction de la hauteur totale du header et des messages d'avertissement */
+    padding-top: 130px; /* Adjust this value based on the total height of the header and warning messages */
   }
 }
