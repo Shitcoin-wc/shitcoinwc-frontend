@@ -53,8 +53,8 @@ function ParallaxSection() {
   const renderer = ({ days, hours, minutes, seconds }) => {
     return (
       <div>
-        <span className="desktop-text">Live on BSC mainnet at {days}D {padZero(hours)}:{padZero(minutes)}:{padZero(seconds)} </span>
-        <span className="mobile-text">Live on BSC mainnet at <br /> {days}D {padZero(hours)}:{padZero(minutes)}:{padZero(seconds)}</span>
+        <span className="desktop-text">Live on BSC mainnet in {days}D {padZero(hours)}:{padZero(minutes)}:{padZero(seconds)} </span>
+        <span className="mobile-text">Live on BSC mainnet in <br /> {days}D {padZero(hours)}:{padZero(minutes)}:{padZero(seconds)}</span>
       </div>
     );
   };
@@ -70,7 +70,9 @@ function ParallaxSection() {
 
       <h1 className="prose text-center">Got Shitcoins? Dump Them Now in WC!</h1>
       <h2 className="text-center mt-4">Flush Your Tokens and Transform Them into GSHT with Shitcoin WC!</h2>
-
+      <h3 className="text-center mb-8 font-bold whitespace-nowrap">
+              <Countdown date={new Date('2024-08-01T00:00:00')} renderer={renderer} />
+      </h3>
       <div className="content-container flex flex-col items-center justify-center max-w-maxWidth1200 mt-16">
         <div className="w-full flex flex-col md:flex-row gap-20 justify-center md:justify-start">
           <div className="w-full md:w-1/2 flex justify-center items-center overflow-hidden">
@@ -78,9 +80,7 @@ function ParallaxSection() {
           </div>
 
           <div className="w-full md:w-1/2">
-            <h3 className="text-center mb-8 font-bold whitespace-nowrap">
-              <Countdown date={new Date('2024-08-01T00:00:00')} renderer={renderer} />
-            </h3>
+          <h3 className="text-center mb-8 font-bold	whitespace-nowrap	">1,000,000 TVL</h3>
             <div className="flex flex-col flex-wrap justify-center md:justify-start gap-4">
               <div onClick={flushTokens}>
                 <ButtonWithIcon SvgIcon={FlushLoo} text="FLUSH IT" size="lg" tailwindClass="w-full font-baloo" headbandText="Soon" />
