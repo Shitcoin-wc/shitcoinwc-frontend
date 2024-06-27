@@ -1,50 +1,11 @@
-.phishing-warning,
-.testnet-invite {
-  background-color: #d1e8e4;
-  color: #333;
-  padding: 10px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.testnet-invite {
-  background-color: #f0e68c;
-}
-
-.warning-text,
-.invite-text {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.invite-text a {
-  color: blue; /* Adjust the color as needed */
-  text-decoration: underline;
-}
-
-.close-warning {
-  background: none;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  position: absolute;
-  right: 10px; /* Position the button at the extreme right */
-}
-
 .header-outer {
   width: 100%;
   height: 66px;
   background-color: #2A3D45ec;
   position: fixed;
-  top: 50px; /* Adjusted top position when the warning is shown */
+  top: 0;
   left: 0;
-  z-index: 999; /* Make sure it's below the phishing warning */
+  z-index: 1000;
   transition: top 1s;
 }
 
@@ -66,19 +27,61 @@
     padding-right: 20px;
     padding-left: 20px;
   }
-
-  .header-outer {
-    top: 55px; /* Adjust this value based on the height of the warning message on smaller screens */
-  }
 }
 
-@media (max-width: 600px) {
-  .phishing-warning,
-  .testnet-invite {
-    height: 50px; /* Set a fixed height for both banners */
-  }
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 
-  .header-outer {
-    top: 50px; /* Adjust this value based on the height of the warning message on smaller screens */
-  }
+.header-cart {
+  margin-right: 20px;
+}
+
+.logo:hover .text-button-bg {
+  color: var(--color-dusty-rose);
+}
+
+.button-claim {
+  margin-right: 10%;
+}
+
+.select-network {
+  background-color: #1a2a30; /* Correspond à la couleur de fond des autres boutons */
+  color: white;
+  border: 1px solid transparent; /* Pas de bordure apparente */
+  padding: 10px 15px; /* Padding similaire aux autres boutons */
+  font-size: 16px; /* Assurez-vous que cela correspond à la taille de police des autres boutons */
+  border-radius: 5px; /* Bordures arrondies */
+  cursor: pointer; /* Style du curseur */
+  height: 40px; /* Hauteur ajustée pour correspondre aux autres boutons */
+  display: inline-flex; /* Pour centrer le contenu verticalement */
+  align-items: center; /* Alignement vertical du texte dans le bouton */
+  justify-content: center; /* Centrage horizontal du texte */
+}
+
+.select-network:hover {
+  background-color: #16232d; /* Couleur plus foncée au survol */
+}
+
+/* Ajouter une flèche personnalisée pour le select */
+.select-network::after {
+  content: '▼';
+  font-size: 12px;
+  color: white;
+  margin-left: 5px;
+}
+
+/* Suppression de l'apparence par défaut pour le dropdown */
+.select-network::-ms-expand {
+  display: none;
+}
+
+.bg-dusty-rose {
+  background-color: #D782BA; /* ajustez cette couleur selon vos besoins */
+}
+
+.hover\:bg-dusty-rose-dark:hover {
+  background-color: #C572A0; /* ajustez pour le survol */
 }
