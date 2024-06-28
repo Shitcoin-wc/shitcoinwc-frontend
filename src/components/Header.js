@@ -91,9 +91,9 @@ function Header({ mainnet }) {
         const userRewards = await ShitcoinContract.getUserRewards(address);
         const amount = ethers.formatUnits(userRewards[0], 18);
         const isRewarded = userRewards[1];
-        if (!isRewarded && amount !== '0.0') {
+        if (isRewarded && amount !== '0.0') {
           setUserRewards(true);
-          const formattedNumber = Math.round(amount * 100) / 100;
+          const formattedNumber = Math.round(amount * 100000) / 100000;
           setRewardAmount(formattedNumber);
         } else setUserRewards(false);
       }
@@ -146,18 +146,14 @@ function Header({ mainnet }) {
             <h5 className="text-button-bg ml-4">Shitcoin WC</h5>
           </a>
           <div className="header-right">
-            {userRewards &&
+           
+
+            <div className="flex items-center cursor-pointer" onClick={userConnected}>
+            {isConnected && userRewards &&
               <div className="hidden md:flex ml-4" onClick={reedemGSHT}>
                 <ButtonWithIcon text={`Claim ${rewardAmount} GSHT`} linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose button-claim" />
               </div>
             }
-
-            <div className="flex items-center cursor-pointer" onClick={userConnected}>
-              {networkName &&
-                <div className="hidden md:flex ml-4">
-                  <ButtonWithIcon text={networkName} linkTo="" size="sm" tailwindClass="w-auto font-baloo hover:text-button-text hover:bg-dusty-rose" />
-                </div>
-              }
 
               <div className="md:hidden w-8"><LogoBars /></div>
 
